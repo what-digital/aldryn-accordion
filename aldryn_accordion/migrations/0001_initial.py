@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Accordion',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin', on_delete=models.CASCADE,)),
                 ('custom_classes', models.CharField(max_length=200, verbose_name='custom classes', blank=True)),
                 ('index', models.PositiveIntegerField(help_text='index of element that should be opened on page load (leave it empty if none of itemes should be opened), zero is the first item', null=True, verbose_name='index', blank=True)),
                 ('grouping', models.BooleanField(default=True, help_text='only one can be opened at a time (true) or every entry can be opened individually (false)', verbose_name='grouping')),
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AccordionItem',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin', on_delete=models.CASCADE)),
                 ('title', models.CharField(max_length=255, null=True, verbose_name='title')),
                 ('custom_classes', models.CharField(max_length=200, verbose_name='custom classes', blank=True)),
             ],
